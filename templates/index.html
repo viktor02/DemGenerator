@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form method="post" action="#" enctype=multipart/form-data>
+        <div class="row">
+            <div class="col-sm">
+                <div class="ms-form-group">
+                    <label for="Login">Text</label>
+                    <input type="text" placeholder="Login" name="text">
+                </div>
+                <div class="ms-form-group">
+                    <label for="Login">Subtext</label>
+                    <input type="text" placeholder="Login" name="subtext">
+                </div>
+                <input type=file name=file>
+                <input type=submit value=Upload>
+            </div>
+            <div>
+                <button class="ms-btn ms-success ms-fullwidth ms-medium">Submit</button>
+            </div>
+        </div>
+    </form>
+{% endblock %}
