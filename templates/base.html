@@ -6,13 +6,11 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>DemGenerator</title>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/minstyle.io@1.1.0/css/minstyle.io.css">
+    <link href="https://bootswatch.com/5/sketchy/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+{#    <link rel="stylesheet" href="{{ url_for('static', filename='my.css') }}">#}
 </head>
 <body>
-<div class="container">
-    {% block content %}
-    {% endblock %}
-</div>
-
+{% block content %}
+{% endblock %}
 </body>
 </html>

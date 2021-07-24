@@ -1,23 +1,29 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <form method="post" action="#" enctype=multipart/form-data>
-        <div class="row">
-            <div class="col-sm">
-                <div class="ms-form-group">
-                    <label for="Login">Text</label>
-                    <input type="text" placeholder="Login" name="text">
-                </div>
-                <div class="ms-form-group">
-                    <label for="Login">Subtext</label>
-                    <input type="text" placeholder="Login" name="subtext">
-                </div>
-                <input type=file name=file>
-                <input type=submit value=Upload>
-            </div>
-            <div>
-                <button class="ms-btn ms-success ms-fullwidth ms-medium">Submit</button>
+    <div class="container">
+        <div class="row justify-content-center h-100 align-items-center">
+            <h1 class="text-center">Make demotivator</h1>
+            <div class="col-auto p-5">
+                <form method="post" action="#" enctype=multipart/form-data>
+                    <div class="mb-3">
+                        <label for="capture" class="form-label">Caption</label>
+                        <input type="text" class="form-control" id="capture" name="text">
+                    </div>
+                    <div class="mb-3">
+                        <label for="subtext" class="form-label">Text under caption</label>
+                        <input type="text" class="form-control" id="subtext" name="subtext">
+                    </div>
+                    <div class="mb-3">
+                        <label for="formFile" class="form-label">Image</label>
+                        <input class="form-control" type="file" id="formFile" name="file">
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
             </div>
         </div>
-    </form>
+    </div>
+
 {% endblock %}

@@ -1,0 +1,7 @@
+{
+  "DEBUG": "FALSE",
+  "UPLOAD_FOLDER": "input_dir",
+  "OUT_FOLDER": "output_dir",
+  "FONT_PATH": "fonts/OpenSans-Regular.ttf",
+  "SECRET_KEY": "mysecretkey"
+}
