@@ -7,13 +7,18 @@
             <div class="col-auto p-5">
                 <form method="post" action="#" enctype=multipart/form-data>
                     <div class="mb-3">
-                        <label for="capture" class="form-label">Caption</label>
+                        <label for="capture" class="form-label">Caption / Text</label>
                         <input type="text" class="form-control" id="capture" name="text">
                     </div>
                     <div class="mb-3">
-                        <label for="subtext" class="form-label">Text under caption</label>
+                        <label for="subtext" class="form-label">Text under caption / Quote Author</label>
                         <input type="text" class="form-control" id="subtext" name="subtext">
                     </div>
+                    <label for="select" class="form-label">Demotivator or Quote</label>
+                    <select class="mb-3 form-select" aria-label="Demotivator or Quote" id="select" name="select">
+                        <option value="1" selected>Demotivator</option>
+                        <option value="2">Quote</option>
+                    </select>
                     <div class="mb-3">
                         <label for="formFile" class="form-label">Image</label>
                         <input class="form-control" type="file" id="formFile" name="file">
