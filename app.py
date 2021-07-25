@@ -1,8 +1,9 @@
 import json
+import logging
 import os
-import pathlib
 import random
 import string
+from time import gmtime, strftime
 
 import flask
 from flask import Flask, flash, request, redirect, url_for, render_template
@@ -15,6 +16,7 @@ app = Flask(__name__)
 application = app
 
 app.config.from_file('config.json', load=json.load)
+logging.basicConfig(level=logging.WARNING, filename='log.txt')
 
 
 def allowed_file(filename):
@@ -63,14 +65,29 @@ def upload_file():
 
             choice = request.form.get('select')
             if choice == '1':
+                is_check_watermark = request.form.get('watermark')
                 dem = Demotivator(request.form.get('text'), request.form.get('subtext'))
-                dem.create(inp_filepath, fonttext=app.config['FONT_PATH'], RESULT_FILENAME=out_filepath)
+                if is_check_watermark == '1':
+                    dem.create(inp_filepath,
+                               fonttext=app.config['FONT_PATH'],
+                               RESULT_FILENAME=out_filepath,
+                               line=app.config['WATERMARK'])
+                else:
+                    dem.create(inp_filepath,
+                               fonttext=app.config['FONT_PATH'],
+                               RESULT_FILENAME=out_filepath)
             elif choice == '2':
                 quote = Quote(request.form.get('text'), request.form.get('subtext'))
-                quote.get(inp_filepath, name_font=app.config['FONT_PATH'], RESULT_FILENAME=out_filepath)
+                quote.get(inp_filepath,
+                          name_font=app.config['FONT_PATH'],
+                          text_font=app.config['FONT_PATH'],
+                          headline_font=app.config['FONT_PATH'],
+                          RESULT_FILENAME=out_filepath)
             else:
                 flash('Select error')
                 return redirect(request.url)
+
+            logging.warning(f"{strftime('%Y-%m-%d %H:%M:%S', gmtime())} - {flask.request.remote_addr} - {filename}")
 
             return redirect(url_for('view_dem', name=out_filename))
     return render_template('index.html')

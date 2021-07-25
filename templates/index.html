@@ -23,6 +23,13 @@
                         <label for="formFile" class="form-label">Image</label>
                         <input class="form-control" type="file" id="formFile" name="file">
                     </div>
+                    <div class="form-check mb-3" id="selectDiv">
+                        <input class="form-check-input" type="checkbox" value="1" id="watermark" name="watermark"
+                               checked>
+                        <label class="form-check-label" for="watermark">
+                            Add watermark
+                        </label>
+                    </div>
                     <div class="text-center">
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
@@ -30,5 +37,17 @@
             </div>
         </div>
     </div>
+    <script>
+        const selectElement = document.querySelector('#select');
+
+        selectElement.addEventListener('change', (event) => {
+            var selected = selectElement.options[ selectElement.selectedIndex ].value;
+            if (selected === "2"){
+                document.getElementById("selectDiv").style.visibility = "hidden";
+            } else {
+                document.getElementById("selectDiv").style.visibility = "visible";
+            }
+        });
+    </script>
 
 {% endblock %}

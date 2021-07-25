@@ -3,5 +3,6 @@
   "UPLOAD_FOLDER": "input_dir",
   "OUT_FOLDER": "output_dir",
   "FONT_PATH": "fonts/OpenSans-Regular.ttf",
+  "WATERMARK": "demo.vitka-k.ru",
   "SECRET_KEY": "mysecretkey"
 }
